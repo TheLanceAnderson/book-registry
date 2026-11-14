@@ -5,6 +5,9 @@ from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 from backend.schemas import BookCreate
 
+from fastapi import BackgroundTasks
+from backend.email_service import send_book_notification
+
 from backend.database import SessionLocal
 from backend.models import Book
 
@@ -100,6 +103,7 @@ def search_books(
 @app.post("/books", status_code=status.HTTP_201_CREATED)
 def add_book(
     book: BookCreate,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db)
 ):
     # Check whether this exact book already exists
@@ -129,6 +133,14 @@ def add_book(
     db.add(new_book)
     db.commit()
     db.refresh(new_book)
+
+    background_tasks.add_task(
+        send_book_notification,
+        title=new_book.title,
+        author=new_book.author,
+        language=new_book.language,
+        bought_by=new_book.bought_by
+    )
 
     return {
         "message": "Book added successfully!",
