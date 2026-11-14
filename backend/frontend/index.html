@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Party Registry</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Book Party Registry</h1>
+            <p>Find out if someone is already bringing your book!</p>
+        </header>
+
+        <section class="card">
+            <h2>1. Search for your book</h2>
+            <form id="search-form">
+                <label for="search-title">Book title</label>
+                <input
+                    type="text"
+                    id="search-title"
+                    placeholder="e.g. The Hobbit"
+                    required
+                >
+
+                <label for="search-author">Author (optional)</label>
+                <input
+                    type="text"
+                    id="search-author"
+                    placeholder="e.g. J.R.R. Tolkien"
+                >
+
+                <button type="submit">Search books</button>
+            </form>
+        </section>
+
+        <section id="results-section" class="card hidden">
+            <h2>2. Search results</h2>
+            <p>Review these books before adding yours.</p>
+
+            <h3>Strong matches</h3>
+            <div id="strong-matches"></div>
+
+            <h3>Weak matches</h3>
+            <div id="weak-matches"></div>
+
+            <p id="no-results" class="hidden">
+                No similar books found!
+            </p>
+
+            <button id="continue-button" type="button">
+                My book isn't listed
+            </button>
+        </section>
+
+        <section id="add-section" class="card hidden">
+            <h2>3. Add your book</h2>
+
+            <form id="add-form">
+                <label for="book-title">Book title</label>
+                <input id="book-title" required>
+
+                <label for="book-author">Author</label>
+                <input id="book-author" required>
+
+                <label for="book-language">Language</label>
+                <select id="book-language" required>
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                </select>
+
+                <label for="bought-by">Your name</label>
+                <input id="bought-by" required>
+
+                <button type="submit">Add book</button>
+            </form>
+
+            <p id="submission-message" role="status"></p>
+        </section>
+    </main>
+</body>
+</html>
