@@ -146,6 +146,13 @@ searchForm.addEventListener("submit", async (event) => {
             data.weak_matches.length === 0
         );
 
+        const weakHeading = weakSection.querySelector("h3");
+
+        weakHeading.textContent =
+            data.strong_matches.length > 0
+                ? "Other possible matches"
+                : "Possible matches";
+
         if (data.strong_matches.length > 0) {
             displayMatches(strongMatches, data.strong_matches);
         }
