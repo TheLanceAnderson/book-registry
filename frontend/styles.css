@@ -100,3 +100,22 @@ button:disabled {
 #submission-message {
     margin-top: 16px;
 }
+
+.confirmation-preview {
+    background: #f6f3ed;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+#cancel-confirmation-button {
+    background: #777;
+}
+
+#use-original-button {
+    background: #846c49;
+}
+
+#confirmation-section button {
+    margin-right: 8px;
+}

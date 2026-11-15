@@ -89,6 +89,30 @@
                 <button type="submit">Add book</button>
             </form>
 
+            <div id="confirmation-section" class="hidden">
+                <h3>Confirm your book</h3>
+                <p>I've formatted the title and author for consistency, but you can choose to undo that if you want.</p>
+
+                <div class="confirmation-preview">
+                    <p><strong>Title:</strong> <span id="preview-title"></span></p>
+                    <p><strong>Author:</strong> <span id="preview-author"></span></p>
+                    <p><strong>Language:</strong> <span id="preview-language"></span></p>
+                    <p><strong>Brought by:</strong> <span id="preview-bought-by"></span></p>
+                </div>
+
+                <button id="confirm-submit-button" type="button">
+                    Submit book
+                </button>
+
+                <button id="use-original-button" type="button" class="hidden">
+                    No, submit with my original capitalization
+                </button>
+
+                <button id="cancel-confirmation-button" type="button">
+                    Cancel
+                </button>
+            </div>
+
             <p id="submission-message" role="status"></p>
         </section>
     </main>
