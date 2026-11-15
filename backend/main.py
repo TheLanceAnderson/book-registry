@@ -161,7 +161,6 @@ def search_books(
             "id": book.id,
             "title": book.title,
             "author": book.author,
-            "bought_by": book.bought_by,
             "language": book.language,
             "similarity": round(title_similarity, 3)
         }

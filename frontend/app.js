@@ -168,9 +168,12 @@ searchForm.addEventListener("submit", async (event) => {
         resultsSection.classList.remove("hidden");
 
         // Prefill the add-book form
-        document.getElementById("book-title").value = title;
+        document.getElementById("book-title").value =
+            properCaseTitle(title);
+
         document.getElementById("book-author").value =
-            document.getElementById("search-author").value.trim();
+            properCaseAuthor(author);
+
         document.getElementById("book-language").value =
             document.getElementById("search-language").value;
 

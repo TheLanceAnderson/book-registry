@@ -11,7 +11,7 @@ GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 NOTIFICATION_EMAIL = os.getenv("NOTIFICATION_EMAIL")
 
 
-def send_book_notification(title, author, language, bought_by):
+def send_book_notification(title, language, bought_by):
     message = EmailMessage()
 
     message["Subject"] = f"New Book Added: {title}"
@@ -21,10 +21,8 @@ def send_book_notification(title, author, language, bought_by):
     message.set_content(
         f"""A new book has been added to the registry!
 
-Book: {title}
-Author: {author}
 Language: {language}
-Bought by: {bought_by}
+Added by: {bought_by}
 """
     )
 
