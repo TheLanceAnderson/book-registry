@@ -1,5 +1,5 @@
 
-const API_URL = "https://book-registry-api.onrender.com";
+const API_URL = "https://book-registry.lancecharlesanderson.workers.dev";
 
 // Find the HTML elements we'll interact with
 const searchForm = document.getElementById("search-form");
