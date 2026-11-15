@@ -48,24 +48,36 @@
             </form>
         </section>
 
+        
         <section id="results-section" class="card hidden">
             <h2>2. Search results</h2>
-            <p>Review these books before adding yours.</p>
+            <p>Check whether your book is already listed before adding it.</p>
 
-            <h3>Strong matches</h3>
-            <div id="strong-matches"></div>
+            <div id="strong-section" class="match-section strong-section">
+                <h3>Strong matches</h3>
+                <p class="match-description">
+                    These books closely match your search. Check these first!
+                </p>
+                <div id="strong-matches"></div>
+            </div>
 
-            <h3>Weak matches</h3>
-            <div id="weak-matches"></div>
+            <div id="weak-section" class="match-section weak-section">
+                <h3>Other possible matches</h3>
+                <p class="match-description">
+                    These books have some similarities to your search.
+                </p>
+                <div id="weak-matches"></div>
+            </div>
 
             <p id="no-results" class="hidden">
-                No similar books found!
+                No similar books found. You can add yours below!
             </p>
 
             <button id="continue-button" type="button">
                 My book isn't listed
             </button>
         </section>
+
 
         <section id="add-section" class="card hidden">
             <h2>3. Add your book</h2>

@@ -133,8 +133,26 @@ searchForm.addEventListener("submit", async (event) => {
 
         const data = await response.json();
 
-        displayMatches(strongMatches, data.strong_matches);
-        displayMatches(weakMatches, data.weak_matches);
+        const strongSection = document.getElementById("strong-section");
+        const weakSection = document.getElementById("weak-section");
+
+        strongSection.classList.toggle(
+            "hidden",
+            data.strong_matches.length === 0
+        );
+
+        weakSection.classList.toggle(
+            "hidden",
+            data.weak_matches.length === 0
+        );
+
+        if (data.strong_matches.length > 0) {
+            displayMatches(strongMatches, data.strong_matches);
+        }
+
+        if (data.weak_matches.length > 0) {
+            displayMatches(weakMatches, data.weak_matches);
+        }
 
         const totalMatches =
             data.strong_matches.length + data.weak_matches.length;

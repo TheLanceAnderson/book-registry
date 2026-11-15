@@ -89,7 +89,20 @@ def search_books(
 
         # Compare meaningful title words
         shared_title_words = query_words & book_title_words
-        shared_author_words = author_words & book_author_words
+        # Match complete author words from either search field
+        author_search_words = query_words | author_words
+
+        shared_author_words = author_search_words & book_author_words
+
+        # Also allow minor misspellings of author names
+        fuzzy_author_match = any(
+            difflib.SequenceMatcher(
+                None, search_word, author_word
+            ).ratio() >= 0.80
+            for search_word in author_search_words
+            for author_word in book_author_words
+            if len(search_word) >= 4 and len(author_word) >= 4
+        )
 
         # Compare full normalized titles
         search_clean = " ".join(sorted(query_words))
@@ -135,6 +148,7 @@ def search_books(
             shared_title_words
             or shared_author_words
             or fuzzy_word_match
+            or fuzzy_author_match
             or title_similarity >= 0.60
         ):
             category = "weak"
