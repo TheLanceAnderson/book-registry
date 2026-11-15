@@ -1,5 +1,5 @@
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://book-registry-api.onrender.com";
 
 // Find the HTML elements we'll interact with
 const searchForm = document.getElementById("search-form");
