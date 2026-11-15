@@ -89,7 +89,7 @@ function displayMatches(container, books) {
 
         const details = document.createElement("small");
         details.textContent =
-            `${book.author} | ${book.language} | Bought by ${book.bought_by}`;
+            `${book.author} | ${book.language}`;
 
         item.append(title, details);
         container.appendChild(item);
